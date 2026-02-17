@@ -1,10 +1,12 @@
 :root{
     --bg-grey-light: #292929;
     --bg-grey-dark: #242424;
+    --bg-grey-dark-2: #1f1f1f;
 
     --font-default: #d4d6d4;
     --font-dimmed: #ADADAD;
     --font-light: #ffffff;
+    --font-accent: #8588ff;
 
     --border-light: #555;
 }
@@ -45,6 +47,7 @@ body{
     align-items: center;
     padding: .6rem 1.6rem;
     background: var(--bg-grey-light);
+    border-bottom: 1px solid var(--bg-grey-dark-2);
 
     .header__left{
         flex: 1;
@@ -144,6 +147,56 @@ body{
                 color: var(--font-default);
                 margin-bottom: -2px;
             }
+        }
+    }
+}
+
+main{
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sidebar{
+    width: 6.8rem;
+    background: var(--bg-grey-light);
+
+    .sidebar__item{
+        width: 100%;
+        background: inherit;
+        color: inherit;
+        border: none;
+        padding: .8rem 0;
+        transition: background .2s;
+
+        &:hover{
+            background: var(--border-light);
+        }
+
+        .icon{
+            padding-bottom: .4rem;
+
+            img{
+                width: 2.4rem;
+                filter: brightness(80%);
+            }
+        }
+
+        span{
+            display: block;
+
+            svg{
+                color: var(--font-default);
+            }
+        }
+    }
+
+    .highlighted{
+        color: var(--font-accent);
+        border-left: 2px solid var(--font-accent);
+
+        span > svg{
+            color: var(--font-accent);
         }
     }
 }
