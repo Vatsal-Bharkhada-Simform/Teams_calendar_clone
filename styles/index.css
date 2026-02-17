@@ -1,5 +1,6 @@
 :root{
     --bg-grey-light: #2c2b29;
+    --bg-grey-light-2: #363533;
     --bg-grey-dark: #0f0f0f;
     --bg-grey-dark-2: #1f1f1f;
 
@@ -45,6 +46,47 @@ body, button, a, input{
     filter: invert();
 }
 
+.bold{
+    font-weight: 600;
+}
+
+.button__primary{
+    padding: .4rem 1.2rem;
+    background: var(--font-accent-dark);
+    border: 2px solid var(--font-accent-dark);
+    color: inherit;
+    border-radius: .6rem;
+
+    &:hover{
+        background: var(--font-accent);
+    }
+}
+
+.button__secondary{
+    padding: .4rem 1.2rem;
+    background: var(--bg-grey-light);
+    border: 2px solid var(--border-light);
+    color: inherit;
+    border-radius: .6rem;
+
+    &:hover{
+        background: var(--bg-grey-light-2);
+    }
+}
+
+.button__tertiary{
+    padding: .6rem 1.2rem;
+    background: transparent;
+    border: none;
+    color: inherit;
+    border-radius: .6rem;
+    
+    &:hover{
+        background: var(--bg-grey-light-2);
+    }
+}
+
+/* ------------------ Main Styles --------------- */
 .header{
     display: flex;
     justify-content: space-between;
@@ -82,10 +124,10 @@ body, button, a, input{
                 display: inline-block;
                 border-radius: 4px;
 
-                svg{
-                    font-size: 1rem;
-                    color: #999;
-                    /* margin-bottom: -8px; */
+                img{
+                    filter: invert() brightness(70%);
+                    margin-bottom: -2px;
+                    scale: .75;
                 }
 
                 &:last-child svg{
@@ -219,6 +261,7 @@ main{
     align-items: center;
     padding: 1.2rem 2.4rem;
     background: var(--bg-grey-dark-2);
+    border-bottom: 1px solid var(--bg-grey-dark);
 
     .header-2__left{
         display: flex;
@@ -245,18 +288,76 @@ main{
     .header-2__right{
         display: flex;
         gap: 1rem;
+
+        button{
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+
+            span{
+                font-size: 2rem;
+            }
+            svg{
+                color: inherit;
+            }
+        }
+
+        .button-group{
+            border-radius: .6rem;
+            overflow: hidden;
+            padding: none;
+            background: var(--font-accent-dark);
+            color: inherit;
+            border: none;
+            
+            .left-part, .right-part{
+                padding: .4rem .8rem;
+                display: flex;
+                align-items: center;
+                font-size: 1.4rem;
+            }
+
+            .left-part{
+                border-right: 1px solid var(--bg-grey-light);
+            }
+        }
     }
 }
 
 .toolbar{
     display: flex;
     justify-content: space-between;
-    padding: 1.2rem 2.4rem;
+    padding: .8rem 2.4rem;
+    background: var(--bg-grey-dark-2);
+    border-bottom: 1px solid var(--bg-grey-dark);
 
     .toolbar__left, .toolbar__right{
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        button{
+            border: none;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            img{
+                filter: invert() brightness(70%);
+                margin-bottom: -2px;
+                scale: .75;
+            }
+
+            svg{
+                color: var(--font-default);
+            }
+        }
+
+        .bold{
+            color: var(--font-light);
+        }
     }
 }
 
