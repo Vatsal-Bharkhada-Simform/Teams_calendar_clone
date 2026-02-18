@@ -2,6 +2,7 @@
     --bg-grey-light: #2c2b29;
     --bg-grey-light-2: #363533;
     --bg-grey-light-3: #292929;
+    --bg-grey-light-4: #adadad;
     --bg-grey-dark: #050505;
     --bg-grey-dark-2: #1f1f1f;
     --bg-grey-dark-3: #242424;
@@ -340,6 +341,31 @@ main{
 
             .right-part{
                 padding-left: 0;
+            }
+        }
+
+        .new-calendar-toggle{
+            display: flex;
+            align-items: center;
+
+            span{
+                font-size: 1.4rem;
+            }
+
+            .toggle__capsule{
+                margin-inline: 1rem;
+                width: 4rem;
+                border: 1px solid var(--bg-grey-light-4);
+                border-radius: 1rem;
+                padding: .2rem;
+                cursor: pointer;
+
+                .toggle__circle{
+                    width: 1.4rem;
+                    aspect-ratio: 1/1;
+                    background: var(--bg-grey-light-4);
+                    border-radius: 50%;
+                }
             }
         }
     }
