@@ -406,6 +406,10 @@ main{
         table-layout: fixed;
         width: 90%;
 
+        tr th:first-child{
+            width: 6rem;
+        }
+
 
         thead {
             th{
@@ -476,7 +480,7 @@ main{
                                 border-radius: .4rem;
                                 font-weight: 600;
                                 background-color: var(--font-accent);
-                                color: var(--font-accent-dark-2);
+                                color: var(--bg-grey-dark-3);
                             }
                         }
                     }
