@@ -1,14 +1,18 @@
 :root{
     --bg-grey-light: #2c2b29;
     --bg-grey-light-2: #363533;
-    --bg-grey-dark: #0f0f0f;
+    --bg-grey-light-3: #292929;
+    --bg-grey-dark: #050505;
     --bg-grey-dark-2: #1f1f1f;
+    --bg-grey-dark-3: #242424;
 
     --font-default: #d4d6d4;
     --font-dimmed: #ADADAD;
     --font-light: #ffffff;
     --font-accent: #8588ff;
     --font-accent-dark: #5151b1;
+    --font-accent-dark-2: #3d3e77;
+    --font-accent-light: #c4c9fb;
 
     --border-light: #555;
 }
@@ -27,12 +31,18 @@ body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     background: var(--bg-grey-dark);
     color: var(--font-default);
 }
 
 body, button, a, input{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button, a{
+    cursor: pointer;
 }
 
 /* ------------- Utility Classes -------------- */
@@ -63,11 +73,11 @@ body, button, a, input{
 }
 
 .button__secondary{
-    padding: .4rem 1.2rem;
+    padding: .2rem 1.2rem;
     background: var(--bg-grey-light);
     border: 2px solid var(--border-light);
     color: inherit;
-    border-radius: .6rem;
+    border-radius: .4rem;
 
     &:hover{
         background: var(--bg-grey-light-2);
@@ -79,7 +89,7 @@ body, button, a, input{
     background: transparent;
     border: none;
     color: inherit;
-    border-radius: .6rem;
+    border-radius: .4rem;
     
     &:hover{
         background: var(--bg-grey-light-2);
@@ -199,8 +209,8 @@ body, button, a, input{
 
 main{
     display: flex;
-    height: 100%;
     overflow: hidden;
+    flex-grow: 1;
 
     .content{
         width: 100%;
@@ -288,12 +298,13 @@ main{
     .header-2__right{
         display: flex;
         gap: 1rem;
-
+        
         button{
             font-size: 1.4rem;
             display: flex;
             align-items: center;
             gap: .8rem;
+            font-weight: 500;
 
             span{
                 font-size: 2rem;
@@ -304,22 +315,31 @@ main{
         }
 
         .button-group{
-            border-radius: .6rem;
+            border-radius: .4rem;
             overflow: hidden;
             padding: none;
-            background: var(--font-accent-dark);
             color: inherit;
             border: none;
+            background: var(--font-accent-dark);
             
             .left-part, .right-part{
-                padding: .4rem .8rem;
+                padding: .2rem .8rem;
                 display: flex;
                 align-items: center;
                 font-size: 1.4rem;
+                height: 100%;
             }
 
             .left-part{
                 border-right: 1px solid var(--bg-grey-light);
+
+                svg{
+                    margin: 0 .4rem;
+                }
+            }
+
+            .right-part{
+                padding-left: 0;
             }
         }
     }
@@ -353,6 +373,17 @@ main{
             svg{
                 color: var(--font-default);
             }
+
+            &:hover{
+                svg{
+                    color: var(--font-accent);
+                    fill: var(--font-accent-dark-2);
+                }
+
+                .no-fill{
+                    fill: var(--font-accent);
+                }
+            }
         }
 
         .bold{
@@ -367,7 +398,123 @@ main{
     overflow: hidden;
 
     table{
-        flex: 1;
-        overflow: scroll;
+        flex-grow: 1;
+        background: var(--bg-grey-dark-2);
+        border-bottom: 1px solid var(--bg-grey-dark);
+        border-collapse: collapse;
+        overflow-y: auto;
+        table-layout: fixed;
+        width: 90%;
+
+
+        thead {
+            th{
+                text-align: left;
+                padding: .8rem;
+                width: auto;
+                
+                .date{
+                    font-size: 2.4rem;
+                    font-weight: 400;
+                    display: block;
+                    margin-bottom: .4rem;
+                }
+
+                .day{
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                }
+            }
+
+            .highlight{
+                border-top: 2px solid var(--font-accent);
+                color: var(--font-accent);
+            }
+        }
+
+        tbody {
+            tr{
+                td{
+                    padding: .4rem;
+                    vertical-align: middle;
+                    height: 5rem;
+
+                    &:nth-child(1), &:nth-child(7){
+                        background: var(--bg-grey-dark-3);
+                    }
+
+
+                    .event{
+                        padding: .4rem;
+                        background: var(--font-accent-dark-2);
+                        color: var(--font-accent-light);
+                        display: flex;
+                        align-items: center;
+                        gap: .4rem;
+                        border-left: 4px solid var(--font-accent);
+                        border-radius: .6rem;
+
+                        .event__info{
+                            flex-grow: 1;
+                            
+                            .event__name{
+                                font-weight: 500;
+                                margin-bottom: 4px;
+                            }
+
+                            div{
+                                font-size: 1.2rem;
+                            }
+                        }
+
+                        .event__actions{
+                            padding: .4rem;
+                            button{
+                                border: none;
+                                padding: .6rem;
+                                font-size: 1.2rem;
+                                border-radius: .4rem;
+                                font-weight: 600;
+                                background-color: var(--font-accent);
+                                color: var(--font-accent-dark-2);
+                            }
+                        }
+                    }
+
+                    .done{
+                        border-color: var(--font-accent-dark);
+
+                        .event__actions button{
+                            display: none;
+                        }
+                    }
+                }
+
+                &:nth-child(odd) > td:not(:first-child) {
+                    border-bottom: 1px dashed var(--bg-grey-dark);
+                    
+                    &:nth-child(2), &:nth-child(8){
+                        background: var(--bg-grey-dark-3);
+                    }
+
+                    &:nth-child(7){
+                        background: inherit;
+                    }
+                }
+            }
+
+            .time{
+                text-align: center;
+                width: 5rem;
+                vertical-align: text-top;
+                padding: .4rem;
+                background: var(--bg-grey-dark-2) !important;
+            }
+        }
+
+        td, th {
+            border-right: 1px solid var(--bg-grey-dark);
+            border-bottom: 1px solid var(--bg-grey-dark);
+        }
     }
 }
