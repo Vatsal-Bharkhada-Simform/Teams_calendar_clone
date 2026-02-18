@@ -1,2 +1,3 @@
 User-agent: *
+Allow: /
 Sitemap: https://teams-calendar-clone.pages.dev
