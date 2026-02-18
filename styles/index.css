@@ -3,6 +3,7 @@
     --bg-grey-light-2: #363533;
     --bg-grey-light-3: #292929;
     --bg-grey-light-4: #adadad;
+    --bg-grey-light-5: #999;
     --bg-grey-dark: #050505;
     --bg-grey-dark-2: #1f1f1f;
     --bg-grey-dark-3: #242424;
@@ -142,7 +143,7 @@ button, a{
                 }
 
                 &:last-child svg{
-                    color: #555;
+                    color: var(--border-light);
                 }
             }
         }
@@ -161,7 +162,7 @@ button, a{
 
                 svg{
                     font-size: 2rem;
-                    color: #999;
+                    color: var(--bg-grey-light-5);
                     margin-bottom: -1px;
                 }
             }
@@ -173,10 +174,10 @@ button, a{
                 width: 100%;
                 border: none;
                 outline: none;
-                color: #eee;
+                color: var(--font-light);
 
                 &::placeholder{
-                    color: #aaa;
+                    color: var(--bg-grey-light-4);
                 }
             }
         }
@@ -471,6 +472,11 @@ main{
 
                     &:nth-child(1), &:nth-child(7){
                         background: var(--bg-grey-dark-3);
+                    }
+
+                    &:hover{
+                        -webkit-backdrop-filter: brightness(70%);
+                        backdrop-filter: brightness(70%);
                     }
 
 
